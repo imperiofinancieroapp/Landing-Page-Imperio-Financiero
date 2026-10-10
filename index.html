@@ -4,99 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imperio Financiero | Plataforma de Capitalización Estricta</title>
+  
+  <!-- FAVICON CON TU LOGO IPF -->
+  <link rel="icon" type="image/png" href="IPF.png">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
   <style>
     :root {
-      --bg: #090B10;
-      --card: #121620;
-      --card-hover: #1A202C;
-      --border: #232B3B;
-      --text: #F8FAFC;
-      --muted: #8B949E;
-      --gold: #C2A359;
-      --gold-light: #E5C7781A;
-      --green: #34D399;
-      --red: #F87171;
+      --bg: #090B10; --card: #121620; --border: #232B3B;
+      --text: #F8FAFC; --muted: #8B949E; --gold: #C2A359;
+      --gold-light: #E5C7781A; --green: #34D399; --red: #F87171;
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-
-    /* CONTAINERS */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
     
     /* NAVBAR */
-    nav { border-bottom: 1px solid var(--border); padding: 20px 0; position: sticky; top: 0; background: rgba(9, 11, 16, 0.85); backdrop-filter: blur(12px); z-index: 100; }
+    nav { border-bottom: 1px solid var(--border); padding: 14px 0; position: sticky; top: 0; background: rgba(9, 11, 16, 0.88); backdrop-filter: blur(12px); z-index: 100; }
     .nav-container { display: flex; justify-content: space-between; align-items: center; }
-    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 18px; color: var(--text); letter-spacing: 1px; text-transform: uppercase; }
-    .logo-badge { background: var(--gold); color: #000; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 900; }
+    .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 18px; color: var(--text); letter-spacing: 1px; text-transform: uppercase; text-decoration: none; }
+    .logo-img { height: 38px; width: 38px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border); }
     
+    /* BUTTONS */
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 8px; font-weight: 700; font-size: 14px; text-decoration: none; transition: 0.2s; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; }
     .btn-gold { background: var(--gold); color: #000; border: none; }
     .btn-gold:hover { background: #D4B869; transform: translateY(-2px); }
     .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-    /* HERO SECTION */
-    .hero { padding: 100px 0 60px; text-align: center; position: relative; }
-    .hero::before { content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(194,163,89,0.12) 0%, transparent 70%); pointer-events: none; }
-    .badge-hero { display: inline-block; padding: 6px 16px; background: var(--gold-light); border: 1px solid var(--gold); color: var(--gold); border-radius: 20px; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-bottom: 24px; text-transform: uppercase; }
+    
+    /* HERO */
+    .hero { padding: 80px 0 60px; text-align: center; position: relative; }
+    .badge-hero { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; background: var(--gold-light); border: 1px solid var(--gold); color: var(--gold); border-radius: 20px; font-size: 12px; font-weight: 700; letter-spacing: 1px; margin-bottom: 24px; text-transform: uppercase; }
+    .hero-logo-large { width: 90px; height: 90px; object-fit: cover; border-radius: 16px; border: 2px solid var(--gold); margin-bottom: 20px; box-shadow: 0 0 30px rgba(194,163,89,0.25); }
     .hero h1 { font-size: 56px; font-weight: 900; line-height: 1.1; margin-bottom: 24px; letter-spacing: -1px; }
     .hero h1 span { color: var(--gold); }
-    .hero p { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0 auto 40px; font-weight: 400; }
+    .hero p { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0 auto 40px; }
     .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-
-    /* MOCKUP PREVIEW */
+    
+    /* CARDS & GRID */
     .preview-box { margin-top: 60px; border: 1px solid var(--border); border-radius: 16px; background: var(--card); padding: 12px; box-shadow: 0 20px 80px rgba(0,0,0,0.8); }
     .preview-inner { background: var(--bg); border-radius: 12px; padding: 40px; text-align: center; border: 1px solid var(--border); }
     .preview-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
     .stat-card { background: var(--card); padding: 20px; border-radius: 10px; border: 1px solid var(--border); }
     .stat-title { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
     .stat-num { font-size: 24px; font-weight: 800; margin-top: 6px; }
-
-    /* FEATURES GRID */
+    
     .features { padding: 100px 0; }
     .section-title { text-align: center; margin-bottom: 60px; }
     .section-title h2 { font-size: 36px; font-weight: 800; margin-bottom: 12px; }
-    .section-title p { color: var(--muted); font-size: 16px; }
-
     .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
     .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 32px; transition: 0.3s; }
     .feature-card:hover { border-color: var(--gold); transform: translateY(-4px); }
     .feature-icon { width: 48px; height: 48px; background: var(--gold-light); border: 1px solid var(--gold); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--gold); margin-bottom: 20px; }
-    .feature-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
-    .feature-card p { color: var(--muted); font-size: 14px; line-height: 1.6; }
-
-    /* BANNER ESTRICTO */
+    
     .strict-banner { background: linear-gradient(135deg, #1A0B0B 0%, var(--card) 100%); border: 1px solid var(--red); border-radius: 16px; padding: 48px; margin: 60px 0; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
     .strict-text h3 { font-size: 28px; font-weight: 800; color: var(--red); margin-bottom: 8px; }
-    .strict-text p { color: var(--muted); max-width: 600px; font-size: 15px; }
-
-    /* DOWNLOAD SECTION */
     .download-section { padding: 80px 0; text-align: center; background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .download-card { max-width: 600px; margin: 0 auto; }
-
-    /* FOOTER */
+    
     footer { padding: 40px 0; text-align: center; color: var(--muted); font-size: 13px; border-top: 1px solid var(--border); }
-
-    /* RESPONSIVE */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 36px; }
-      .hero p { font-size: 15px; }
-      .strict-banner { padding: 24px; text-align: center; justify-content: center; }
-    }
+    @media (max-width: 768px) { .hero h1 { font-size: 36px; } .strict-banner { padding: 24px; text-align: center; } }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- NAVBAR CON LOGO IPF -->
   <nav>
     <div class="container nav-container">
-      <div class="logo">
-        <span class="logo-badge">IF</span> Imperio Financiero
-      </div>
+      <a href="#" class="logo">
+        <img src="IPF.png" alt="IPF Logo" class="logo-img" onerror="this.style.display='none'">
+        Imperio Financiero
+      </a>
       <a href="#descargar" class="btn btn-gold">Descargar APK</a>
     </div>
   </nav>
@@ -104,19 +81,21 @@
   <!-- HERO -->
   <header class="hero">
     <div class="container">
+      <img src="IPF.png" alt="IPF Icon" class="hero-logo-large" onerror="this.style.display='none'">
+      <br>
       <span class="badge-hero">Sistema de Retención de Capital v12.5</span>
       <h1>Sin disciplina <span>no hay imperio.</span></h1>
       <p>La primera plataforma financiera diseñada para eliminar gastos hormiga, bloquear excesos de presupuesto y garantizar el cumplimiento de tus metas patrimoniales.</p>
 
       <div class="hero-buttons">
-        <a href="#descargar" class="btn btn-gold">
+        <a href="ImperioFinanciero.apk" download class="btn btn-gold">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Descargar para Android (.APK)
+          Descargar APK para Android
         </a>
-        <a href="TU_URL_DE_APPS_SCRIPT_AQUI" target="_blank" class="btn btn-outline">Abrir Web App</a>
+        <a href="https://script.google.com/macros/s/AKfycbzdwMjnr2BNTQh4oec1e2uWI-QbYLs3XRk2dAOpuucUPNfZFaiDbOL3UdmZcZVVvP6S4g/exec" target="_blank" class="btn btn-outline">Abrir Web App</a>
       </div>
 
-      <!-- MOCKUP STATS PREVIEW -->
+      <!-- PREVIEW STATS -->
       <div class="preview-box">
         <div class="preview-inner">
           <p style="font-size: 12px; color: var(--gold); font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Panel de Control Máster</p>
@@ -136,7 +115,6 @@
           </div>
         </div>
       </div>
-
     </div>
   </header>
 
@@ -145,68 +123,57 @@
     <div class="strict-banner">
       <div class="strict-text">
         <h3>Modo Estricto de Bloqueo Inflexible</h3>
-        <p>A diferencia de otras apps que solo cuentan tus pérdidas, Imperio Financiero congela la posibilidad de gastar cuando alcanzas tu tope mensual. Solo permite excepciones ante emergencias auditadas.</p>
+        <p>A diferencia de otras apps, Imperio Financiero congelará la posibilidad de gastar al alcanzar tu tope mensual. Solo permite excepciones ante emergencias auditadas.</p>
       </div>
       <a href="#descargar" class="btn btn-outline" style="border-color: var(--red); color: var(--red);">Activar Control</a>
     </div>
   </section>
 
-  <!-- FEATURES GRID -->
+  <!-- FEATURES -->
   <section class="features">
     <div class="container">
       <div class="section-title">
         <h2>Ingeniería para tu Independencia Financiera</h2>
         <p>Diseñado bajo arquitectura multi-inquilino de alta seguridad.</p>
       </div>
-
       <div class="grid-3">
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
+          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
           <h3>Bóvedas Privadas en Drive</h3>
           <p>Al registrarte, el sistema crea automáticamente un Google Sheet privado en tu Google Drive. Nadie más tiene acceso a tus números personales.</p>
         </div>
-
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-          </div>
+          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
           <h3>Filtro Anti-Gastos Hormiga</h3>
           <p>Un algoritmo de coincidencia detecta caprichos, antojos y compras impulsivas, bloqueándolos al instante para proteger tu flujo de caja.</p>
         </div>
-
         <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
+          <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <h3>Cálculo de Metas en Tiempo Real</h3>
-          <p>Calcula automáticamente la fecha exacta y la tasa de retención mensual requerida para alcanzar metas como vehículos, viajes o fondos de reserva.</p>
+          <p>Calcula automáticamente la fecha exacta y la tasa de retención mensual requerida para alcanzar tus objetivos financieros.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DOWNLOAD SECTION -->
+  <!-- SECCIÓN DESCARGA -->
   <section class="download-section" id="descargar">
-    <div class="container download-card">
+    <div class="container" style="max-width: 600px; margin: 0 auto;">
       <span class="badge-hero">Instalación Directa</span>
       <h2 style="font-size: 32px; font-weight: 800; margin: 12px 0;">Obtén la App Oficial</h2>
-      <p style="color: var(--muted); margin-bottom: 32px;">Descarga el instalador ejecutable para dispositivos Android o accede directamente desde el navegador.</p>
-
+      <p style="color: var(--muted); margin-bottom: 32px;">Descarga el archivo APK ejecutable directamente a tu celular Android o abre la Web App en tu navegador.</p>
       <div style="display: flex; flex-direction: column; gap: 12px; align-items: center;">
-        <a href="LINK_DE_TU_ARCHIVO_APK_EN_DRIVE_O_WEBINTOAPP" class="btn btn-gold" style="width: 100%; max-width: 380px; justify-content: center; padding: 16px;">
+        <a href="ImperioFinanciero.apk" download class="btn btn-gold" style="width: 100%; max-width: 380px; justify-content: center; padding: 16px;">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          Descargar Archivo .APK (Android)
+          Descargar .APK Directo
         </a>
-        <a href="TU_URL_DE_APPS_SCRIPT_AQUI" target="_blank" class="btn btn-outline" style="width: 100%; max-width: 380px; justify-content: center;">
+        <a href="https://script.google.com/macros/s/AKfycbzdwMjnr2BNTQh4oec1e2uWI-QbYLs3XRk2dAOpuucUPNfZFaiDbOL3UdmZcZVVvP6S4g/exec" target="_blank" class="btn btn-outline" style="width: 100%; max-width: 380px; justify-content: center;">
           Ejecutar en Navegador
         </a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>&copy; 2026 - 2027 Imperio Financiero · Creado por Víctor Carvajal · Todos los derechos reservados.</p>
